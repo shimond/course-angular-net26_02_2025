@@ -1,6 +1,48 @@
-@MainApp_HostAddress = http://localhost:5020
+@MainApp_HostAddress = https://localhost:7145
 
-GET {{MainApp_HostAddress}}/weatherforecast/
+
+GET {{MainApp_HostAddress}}/products
+Accept: application/json
+###
+
+POST {{MainApp_HostAddress}}/products/
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "HAMOTZAR",
+    "description": "Shush",
+    "price": 12
+ }
+###
+
+GET {{MainApp_HostAddress}}/products/1
+Accept: application/json
+###
+
+PUT {{MainApp_HostAddress}}/products/4
+Accept: application/json
+Content-Type: application/json
+
+{
+    "id": 4,
+    "name": "Bisli",
+    "description": "Shush123123",
+    "price": 22
+ }
+###
+
+PATCH {{MainApp_HostAddress}}/products/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": 1,
+  "newPrice": 100
+}
+###
+
+DELETE {{MainApp_HostAddress}}/products/4
 Accept: application/json
 
 ###
