@@ -1,0 +1,21 @@
+GET
+browse/c/dirs
+browse/c/files
+browse/c/files?ex=txt&nameTerm=shi
+browse/c:_temp_1.txt/content
+
+POST
+browse/c:_temp_1.txt
+BODY - file Content
+
+
+
+foreach dir:
+	dirName
+	LastAccessTime
+
+foreach file:
+	fileName
+	size
+	lastModified
+	
