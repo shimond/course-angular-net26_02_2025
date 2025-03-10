@@ -2,7 +2,7 @@
 
 <div class="container">
     @for(person of list(); track person.id) {
-    <div class="person" (click)="onPersonClicked(person)" [class.selected]="person == selectedPerson()">
+    <div class="person" (click)="onPersonClicked(person)" [class.selected]="selectedDictinary()[person.id]">
         <span class="name">{{person.name}}</span>
         <span class="email">{{person.email}}</span>
     </div>

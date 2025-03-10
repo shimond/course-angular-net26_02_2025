@@ -8,14 +8,14 @@ import { ApiService } from "../../services/api.service";
 export interface PeopleSearchState {
     readonly query: string;
     readonly results: Person[];
-    readonly selectedPerson: Person | null;
+    readonly selectedPeople: Person[];
     readonly isLoading: boolean;
 }
 
 const peopleSearchInitialState: PeopleSearchState = {
     query: '',
     results: [],
-    selectedPerson: null,
+    selectedPeople: [],
     isLoading: false
 };
 export const PeopleSearchStore = signalStore(
@@ -25,7 +25,7 @@ export const PeopleSearchStore = signalStore(
             tap((query) => patchState(store, { query })),
         )),
         setSelectedPerson: rxMethod<Person>((person$) => person$.pipe(
-            tap((selectedPerson) => patchState(store, { selectedPerson })),
+            tap((selectedPerson) => patchState(store, { selectedPeople: [...store.selectedPeople(), selectedPerson] })),
         )),
         init: rxMethod<void>((q$) => q$.pipe(
             tap(() => patchState(store, { isLoading: true })),

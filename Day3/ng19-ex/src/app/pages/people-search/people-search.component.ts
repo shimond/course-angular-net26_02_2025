@@ -4,10 +4,11 @@ import { debounceTime, map, of } from 'rxjs';
 import { PersonListComponent } from '../../components/person-list/person-list.component';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Person } from '../../model/person.model';
+import { JsonPipe } from '@angular/common';
 
 @Component({
     selector: 'app-people-search',
-    imports: [PersonListComponent, ReactiveFormsModule],
+    imports: [PersonListComponent, ReactiveFormsModule, JsonPipe],
     templateUrl: './people-search.component.html',
     styleUrl: './people-search.component.scss',
     providers: [PeopleSearchStore]
