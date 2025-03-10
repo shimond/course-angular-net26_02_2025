@@ -1,0 +1,7 @@
+@if(store.isLoading())
+{
+<h2>Loading....</h2>
+}
+<input type="search" [formControl]="searchControl">
+
+<app-person-list [list]="store.searchResults()"></app-person-list>

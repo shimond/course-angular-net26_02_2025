@@ -1,0 +1,11 @@
+<div>
+    <input [formControl]="searchControl">
+</div>
+
+<ul>
+@for(item of results(); track item.id)
+{
+    <li>{{item.title}}</li>
+}
+
+</ul>

@@ -10,7 +10,7 @@ import { Person } from '../../model/person.model';
 export class PersonListComponent {
     // @Input() list: Person[] = [];
     list = input.required<Person[]>();
-    title = input<string>('רשימת האנשים שלי');
+    title = input<string>('Worker list');
     personSelected = output<Person>();
     
     onPersonClicked(person: Person) {
