@@ -1,8 +1,9 @@
 <div>
-    <button (click)="plus()">+</button>
-    {{value$ | async}}  
+    <button (click)="counterService.plus()">+</button>
+    {{counterService.value()}}  
     <h1>
-        IsEven: {{isEven$ | async}}
+        IsEven: {{isEven()}}
     </h1>
-    <button (click)="minus()">  -</button>
+    <button (click)="counterService.minus()">  -</button>
 </div>
+

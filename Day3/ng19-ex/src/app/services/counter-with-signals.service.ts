@@ -4,7 +4,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
-export class CounterService {
+export class CounterWithSignalsService {
 
     #valueChanged = signal(0);
     value = this.#valueChanged.asReadonly();
