@@ -4,4 +4,16 @@
 }
 <input type="search" [formControl]="searchControl">
 
-<app-person-list [list]="store.searchResults()"></app-person-list>
+<button (click)="setDianaAsSelected()"> Select Diana</button>
+@if(store.selectedPerson() ; as person)
+{
+    <div>
+        {{person.name}}
+    </div>
+}
+
+
+
+<app-person-list [list]="store.searchResults()" 
+[selectedPerson]="store.selectedPerson()"
+(personSelected)="store.setSelectedPerson($event)"></app-person-list>

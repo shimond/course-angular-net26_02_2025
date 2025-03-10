@@ -24,6 +24,9 @@ export const PeopleSearchStore = signalStore(
         search: rxMethod<string>((query$) => query$.pipe(
             tap((query) => patchState(store, { query })),
         )),
+        setSelectedPerson: rxMethod<Person>((person$) => person$.pipe(
+            tap((selectedPerson) => patchState(store, { selectedPerson })),
+        )),
         init: rxMethod<void>((q$) => q$.pipe(
             tap(() => patchState(store, { isLoading: true })),
             switchMap(() => api.getAllPeople()),
