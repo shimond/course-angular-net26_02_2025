@@ -5,23 +5,16 @@ import { PeopleDashboardComponent } from './pages/people-dashboard/people-dashbo
 import { SearchComponent } from './components/search/search.component';
 import { PeopleSearchStore } from './pages/people-search/people-search.store';
 import { PeopleSearchComponent } from './pages/people-search/people-search.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-root',
-    imports: [CounterComponent, PeopleDashboardComponent, SearchComponent, PeopleSearchComponent],
+    imports: [RouterOutlet, RouterLink],
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
-    //Control flow - for, if, switch, etc.
-    //Signal
-    // computed, effect
-    // set, update, () 
-    // input, output, required, viewchild
-    // asReadOnly()
-
-
 
     isAllVisible = signal(false as boolean);
 

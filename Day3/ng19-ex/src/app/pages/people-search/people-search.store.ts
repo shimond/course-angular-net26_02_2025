@@ -33,9 +33,14 @@ export const PeopleSearchStore = signalStore(
             tap((resultsFrombackend) => patchState(store, { results: resultsFrombackend, isLoading: false }))
         )),
     })),
-    withComputed((store) => ({
-        searchResults: computed(() => store.results().filter(p => p.name.toLowerCase().includes(store.query().toLowerCase())))
-    })),
+    withComputed((store) => {
+        const searchResults =  computed(() => store.results().filter(p => p.name.toLowerCase().includes(store.query().toLowerCase())));
+        const count = computed(()=> searchResults().length);
+        return {
+            searchResults,
+            count
+        }
+    }),
     withHooks((store) => (
         {
             onInit() {
@@ -45,3 +50,10 @@ export const PeopleSearchStore = signalStore(
         })
     )
 );
+
+
+let test = ()=> ({ name:'David' });
+
+
+
+
