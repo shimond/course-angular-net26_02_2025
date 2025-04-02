@@ -1,4 +1,4 @@
-import { Component, inject, input, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, inject, input, Input, model, OnInit, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AbstractControl, ControlValueAccessor, FormBuilder, FormControl, FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR, ReactiveFormsModule, ValidationErrors, Validator } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,7 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
     styleUrls: ['./generic-form-array.component.scss']
 })
 export class GenericFormArrayComponent<T = string> implements OnInit, ControlValueAccessor, Validator {
-    allowAdd = input<boolean>(true);
+    allowAdd = model<boolean>(true);
     allowDelete = input<boolean>(true);
     autoAddItem = input<boolean>(false);
     removeText = input<string>('הסר');
@@ -40,6 +40,7 @@ export class GenericFormArrayComponent<T = string> implements OnInit, ControlVal
                 this.validationChanged();
             }
         })
+        
     }
 
     validate(control: AbstractControl): ValidationErrors | null {

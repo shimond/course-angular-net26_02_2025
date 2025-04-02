@@ -1,15 +1,11 @@
-<div>
-
-    <button (click)="changeThePriceValue()">disable all</button>
-    <h2>Edit Product</h2>
-
+<div class="container">
+    <h2>{{product ? 'Edit' : 'Add'}} Product</h2>
     <div>
         <form [formGroup]="form" class="mat-elevation-z2 form">
             <mat-form-field appearance="outline">
                 <mat-label>Name</mat-label>
                 <input matInput formControlName="name" />
             </mat-form-field>
-
         
             <app-input-number formControlName="price"></app-input-number>
 
@@ -18,22 +14,14 @@
                 <textarea matInput formControlName="notes" rows="3"></textarea>
             </mat-form-field>
 
-            <app-input-address formControlName="factoryAddress"></app-input-address>
-
-
-            <app-generic-form-array [allowAdd]="true" addText="הוסף" formControlName="reviews"
-                [itemTemplate]="itemTemplate" >
-                <ng-template #itemTemplate let-item="control" let-index="index">
-                {{index}}
-                    <app-input-user-review [formControl]="item"></app-input-user-review>
-                </ng-template>
-            </app-generic-form-array>
-
-            <button mat-raised-button color="warn" [disabled]="form.invalid">Save</button>
+            <div class="actions">
+                <button mat-button type="button" (click)="cancel()">Cancel</button>
+                <button mat-raised-button color="primary" 
+                        [disabled]="form.invalid" 
+                        (click)="save()">
+                    {{product ? 'Update' : 'Add'}}
+                </button>
+            </div>
         </form>
-
-        <div>
-            <pre>{{form.value | json}}</pre>
-        </div>
     </div>
 </div>

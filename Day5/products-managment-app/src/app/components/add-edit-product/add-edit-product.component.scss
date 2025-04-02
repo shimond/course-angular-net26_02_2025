@@ -1,7 +1,16 @@
-.form{
+.container{
+    padding: 16px;
+}
+.form {
     padding: 16px; 
     display: flex; 
     flex-direction: column; 
     gap: 16px; 
     max-width: 400px;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
 }

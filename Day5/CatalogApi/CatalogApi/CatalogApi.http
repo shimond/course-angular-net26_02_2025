@@ -1,0 +1,34 @@
+@CatalogApi_HostAddress = https://localhost:7296
+
+
+GET {{CatalogApi_HostAddress}}/products
+
+###
+
+POST {{CatalogApi_HostAddress}}/products
+Content-Type: application/json
+
+{
+  "name":"bamba",
+  "price":136,
+  "notes":"the note of ba"
+}
+
+###
+
+@id=3
+DELETE {{CatalogApi_HostAddress}}/products/{{id}}
+
+###
+
+PUT {{CatalogApi_HostAddress}}/products/{{id}}
+Content-Type: application/json
+
+{
+    "id":3,
+  "name":"BISLI",
+  "price":55,
+  "notes":"the note of BISLI"
+}
+
+###
