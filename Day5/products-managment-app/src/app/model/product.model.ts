@@ -5,11 +5,15 @@ export interface Product {
     readonly notes: string;
     readonly imageUrl?: string;
     readonly factoryAddress: Address;
+    readonly reviews: UserReview[];
 }
 
-
+export interface UserReview {
+    readonly userName: string;
+    readonly review: string;
+}
 export interface Address {
-    homeNumber:number;
-    street:string;
+    readonly homeNumber: number;
+    readonly street: string;
 }
 

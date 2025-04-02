@@ -1,0 +1,17 @@
+@for (formControl of valuesArray.controls; track formControl; let i = $index) {
+<div class="limit">
+    <div class="item-row">
+        <div *ngTemplateOutlet="itemTemplate();context:{index: i,control: formControl}"></div>
+    </div>
+    <div class="delete-area">
+        @if (allowDelete()) {
+        <button mat-icon-button color="gray" (click)="remove(i)" type="button">
+            <mat-icon>cancel</mat-icon>
+        </button>
+        }
+    </div>
+</div>
+}
+@if (allowAdd()) {
+<button type="button" mat-raised-button (click)="add()">{{addText()}}</button>
+}
